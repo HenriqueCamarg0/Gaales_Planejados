@@ -1,0 +1,174 @@
+
+.header-container {
+  /* Fundo e Sombra */
+  background: var(--color-white);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  
+  /* Posicionamento Fixo no Topo */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  
+  /* Altura reduzida */
+  height: 150px; /* Altura fixa reduzida */
+  padding: 0.75rem 1rem; /* Padding menor */
+  
+  /* Layout do Container */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Container Bootstrap ajustado */
+.header-container .container {
+  height: 100%;
+  max-width: 1200px;
+}
+
+/* Logo otimizada */
+
+/* Logo container otimizado */
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding: 0.5rem 0;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Logo image com melhorias visuais */
+.logo img {
+  height: 150px;
+  width: auto;
+  max-width: 200px; /* Largura máxima para controle */
+  object-fit: contain;
+}
+
+/* Efeito hover sutil na logo */
+.logo img:hover {
+  transform: scale(1.05);
+}
+
+/* Navegação otimizada */
+.header-nav {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+  font-size: 0.95rem; /* Texto ligeiramente menor */
+  padding: 0.5rem 0.75rem; /* Padding ajustado */
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+/* Barrinha animada (do centro para as bordas) */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-gray-dark);
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+/* Hover e link ativo: barrinha cresce e cor muda */
+.nav-link:hover,
+.nav-link.active {
+  color: var(--accent-color);
+  background: rgba(0, 123, 255, 0.05); /* Fundo sutil no hover */
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.nav-link.active::after {
+  width: 100%;
+  background-color: var(--accent-color);
+}
+
+/* Responsividade aprimorada */
+@media (max-width: 992px) {
+  .header-nav {
+    gap: 1.5rem;
+  }
+  
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-container {
+    height: auto; /* Altura automática no mobile */
+    min-height: 70px;
+    flex-direction: column;
+    padding: 0.5rem 1rem;
+    gap: 0.75rem;
+  }
+  
+  .logo img {
+    height: 45px; /* Logo ainda menor no mobile */
+  }
+  
+  .header-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+    padding-bottom: 0.5rem;
+  }
+  
+  .nav-link {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-container {
+    padding: 0.5rem;
+  }
+  
+  .logo img {
+    height: 40px;
+  }
+  
+  .header-nav {
+    gap: 0.75rem;
+  }
+  
+  .nav-link {
+    font-size: 0.8rem;
+    padding: 0.25rem 0.4rem;
+  }
+}
+
+/* Ajuste do corpo da página para compensar o header fixo menor */
+body {
+  padding-top: 80px; /* Mesma altura do header */
+}
+
+/* Transições suaves para mudanças de tela */
+@media (prefers-reduced-motion: no-preference) {
+  .header-container,
+  .logo img,
+  .nav-link {
+    transition: all 0.3s ease;
+  }
+}

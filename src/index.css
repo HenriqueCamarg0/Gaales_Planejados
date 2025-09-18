@@ -1,0 +1,20 @@
+:root {
+  /* Paleta principal */
+  --color-black: #262626;  /* Preto mais suave */
+  --color-white: #ffffff;  /* Branco puro */
+  --color-gray:  #8c8c8c;  /* Cinza para textos e ícones */
+
+  /* Versões auxiliares */
+  --color-gray-light: #f0f0f0; /* Fundo principal, mais sutil */
+  --color-gray-dark:  #4d4d4d; /* Cor de destaque/shadow */
+
+  /* Cor de destaque */
+  --accent-color: #007bff; /* Azul clássico e moderno */
+
+  /* Tipografia */
+  --text-primary: var(--color-black);
+  --text-secondary: var(--color-gray);
+
+  /* Fundo */
+  --background: var(--color-gray-light);
+}

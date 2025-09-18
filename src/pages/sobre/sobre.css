@@ -1,0 +1,273 @@
+.sobre-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--background), var(--color-white));
+  padding: 2rem 1rem;
+}
+
+/* ===== Hero ===== */
+.hero-section {
+  text-align: center;
+  margin: 0 auto 4rem;
+  max-width: 800px;
+}
+
+.page-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+.highlight {
+  background: linear-gradient(135deg, var(--accent-color), #0056b3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.page-subtitle {
+  font-size: 1.2rem;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.decorative-line {
+  width: 80px;
+  height: 4px;
+  margin: 0 auto;
+  border-radius: 2px;
+  background: linear-gradient(135deg, var(--accent-color), #0056b3);
+}
+
+/* ===== Grid de Lojas ===== */
+.lojas-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto 4rem;
+}
+
+/* ===== Card Loja ===== */
+.loja-card {
+  background: var(--color-white);
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.loja-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.loja-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+.loja-card.destaque {
+  border: 2px solid var(--card-color);
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.03), var(--color-white));
+}
+
+/* Badge destaque */
+.badge-destaque {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 0.5rem 1rem;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--card-color);
+  color: var(--color-white);
+}
+
+/* Header */
+.card-header {
+  padding: 2rem 2rem 1rem;
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.05), transparent);
+}
+.loja-nome {
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+.loja-subtitulo {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+/* Conteúdo */
+.card-content {
+  padding: 1rem 2rem;
+}
+.info-item {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+.info-item.clickable-item {
+  cursor: pointer;
+}
+.info-item.clickable-item:hover {
+  background: rgba(0, 123, 255, 0.05);
+  transform: translateX(5px);
+}
+.info-icon {
+  flex-shrink: 0;
+  color: var(--card-color, var(--accent-color));
+}
+.info-text {
+  flex: 1;
+}
+.info-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.info-value {
+  font-weight: 500;
+  color: var(--text-primary);
+}
+.info-value.clickable {
+  color: var(--card-color, var(--accent-color));
+}
+.action-icon {
+  opacity: 0;
+  transition: all 0.3s ease;
+  color: var(--text-secondary);
+}
+.info-item.clickable-item:hover .action-icon {
+  opacity: 1;
+  transform: translateX(5px);
+}
+
+/* Especialidades */
+.especialidades {
+  margin-top: 1.5rem;
+}
+.especialidades-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+}
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.tag {
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  border: 1px solid rgba(0, 123, 255, 0.2);
+  color: var(--card-color, var(--accent-color));
+  background: linear-gradient(135deg, rgba(0, 123, 255, 0.1), rgba(0, 123, 255, 0.05));
+}
+
+/* Footer do Card */
+.card-footer {
+  padding: 1rem 2rem 2rem;
+  display: flex;
+  gap: 1rem;
+}
+.btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-maps {
+  background: var(--card-color, var(--accent-color));
+  color: var(--color-white);
+}
+.btn-maps:hover {
+  background: #0056b3;
+  transform: translateY(-2px);
+}
+.btn-phone {
+  background: rgba(0, 123, 255, 0.1);
+  border: 2px solid var(--card-color, var(--accent-color));
+  color: var(--card-color, var(--accent-color));
+}
+.btn-phone:hover {
+  background: var(--card-color, var(--accent-color));
+  color: var(--color-white);
+  transform: translateY(-2px);
+}
+
+.sobre-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem; /* espaço entre imagem e texto */
+  padding: 2rem;
+  flex-wrap: wrap; /* para mobile, a imagem vai para cima do texto */
+}
+
+.sobre-image img {
+  max-width: 500px;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.sobre-text {
+  max-width: 600px;
+}
+
+.sobre-text h2 {
+  margin-bottom: 1rem;
+}
+
+.sobre-text p {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .lojas-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .card-footer {
+    flex-direction: column;
+  }
+  .sobre-container {
+    padding: 1rem;
+  }
+}
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 2.2rem;
+  }
+  .hero-section {
+    margin-bottom: 2rem;
+  }
+}

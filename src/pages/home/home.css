@@ -1,0 +1,202 @@
+.home {
+  padding: 2rem;
+  background-color: #fff;
+  border-radius: 12px;
+  font-family: 'Inter', sans-serif;
+}
+
+.title {
+  font-family: 'Poppins', sans-serif;
+  font-size: 3rem;
+  color: var(--accent-color);
+  text-align: center;
+  margin-bottom: 1rem;
+  font-weight: 800;
+  letter-spacing: 1px;
+  line-height: 1.2;
+}
+
+.subtitle {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.5rem;
+  color: var(--text-secondary);
+  text-align: center;
+  margin-bottom: 3rem;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-bottom: 4rem;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
+
+.section.reverse {
+  flex-direction: row-reverse;
+}
+
+.section .text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.section .text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.section .text p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.section .image {
+  flex: 1;
+  min-width: 300px;
+}
+
+.section img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.section button {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--accent-color);
+  color: var(--color-white);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.section button:hover {
+  background-color: #0056b3; /* ou criar uma variável --accent-color-dark */
+  transform: translateY(-2px);
+}
+
+.containerCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.card {
+  background-color: var(--color-white);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+}
+
+.iconWrapper {
+  background-color: var(--accent-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  color: var(--color-white);
+  font-size: 1.5rem;
+}
+
+.textHeadLine {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.text {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.project-steps-section {
+  padding: 6rem 5%;
+  background-color: var(--background);
+  text-align: center;
+  margin-top: 1rem;
+  border-radius: 13px;
+}
+
+.project-steps-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent-color);
+}
+
+.project-steps-section p {
+  font-size: 1.2rem;
+  margin-bottom: 3rem;
+  color: var(--text-secondary);
+}
+
+.project-steps-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2rem;
+}
+
+.step-card {
+  background-image: url("https://ik.imagekit.io/al1usqugs/Gaales.Planejados/projeto01.jpg?updatedAt=1758201834507");
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-5px);
+}
+
+.step-card h3 {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  color: var(--text-primary);
+}
+
+.step-card p {
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .section {
+    flex-direction: column !important;
+  }
+
+  .project-steps-section {
+    padding: 4rem 2rem;
+  }
+}
