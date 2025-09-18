@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaInstagram, FaWhatsapp } from 'react-icons/fa';
-import './Links.css';
+import './links.css';
 
 const socialMedia = [
 
