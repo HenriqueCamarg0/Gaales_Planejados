@@ -32,7 +32,7 @@ const Header: React.FC = () => {
             Sobre
           </NavLink>
           <NavLink
-            to="/galeria"
+            to="/projeto"
             className={({ isActive }) =>
               isActive ? "nav-link active" : "nav-link"
             }

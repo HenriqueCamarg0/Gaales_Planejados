@@ -4,12 +4,19 @@
   --color-white: #ffffff;  /* Branco puro */
   --color-gray:  #8c8c8c;  /* Cinza para textos e ícones */
 
+  --text-primary: #333;
+  --text-secondary: #666;
+  --color-white: #fff;
+  --background: #f9f9f9;
+
+
   /* Versões auxiliares */
   --color-gray-light: #f0f0f0; /* Fundo principal, mais sutil */
   --color-gray-dark:  #4d4d4d; /* Cor de destaque/shadow */
 
   /* Cor de destaque */
-  --accent-color: #007bff; /* Azul clássico e moderno */
+  --accent-color: #262626; 
+  --accent-color-dark: #1a1a1a;
 
   /* Tipografia */
   --text-primary: var(--color-black);

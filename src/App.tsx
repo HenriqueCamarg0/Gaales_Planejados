@@ -11,7 +11,7 @@ import Footer from '../src/components/footer/footer.tsx';
 import Home from '../src/pages/home/home.tsx';
 import Sobre from '../src/pages/sobre/sobre.tsx';
 import Contato from '../src/pages/contato/contato.tsx';
-import Projeto from '../src/pages/projetos/projeto.tsx';
+import Galeria from '../src/pages/projetos/projeto.tsx';
 
 const App: React.FC = () => (
   <Router>
@@ -24,7 +24,7 @@ const App: React.FC = () => (
             <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
             <Route path="/sobre" element={<Sobre />} />
-            <Route path="/projeto" element={<Projeto />} />
+            <Route path="/projeto" element={<Galeria />} />
             <Route path="/contato" element={<Contato />} />
           </Routes>
         </div>

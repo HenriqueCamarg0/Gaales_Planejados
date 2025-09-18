@@ -1,16 +1,19 @@
 .home {
   padding: 2rem;
-  background-color: #fff;
+  background-color: var(--color-white);
   border-radius: 12px;
   font-family: 'Inter', sans-serif;
+}
+
+.home-header {
+  text-align: center;
+  margin-bottom: 3rem;
 }
 
 .title {
   font-family: 'Poppins', sans-serif;
   font-size: 3rem;
   color: var(--accent-color);
-  text-align: center;
-  margin-bottom: 1rem;
   font-weight: 800;
   letter-spacing: 1px;
   line-height: 1.2;
@@ -20,8 +23,6 @@
   font-family: 'Poppins', sans-serif;
   font-size: 1.5rem;
   color: var(--text-secondary);
-  text-align: center;
-  margin-bottom: 3rem;
   font-weight: 400;
   line-height: 1.5;
 }
@@ -33,18 +34,19 @@
   gap: 2rem;
   margin-bottom: 4rem;
   flex-wrap: wrap;
+  animation: fadeInUp 0.8s forwards;
   opacity: 0;
   transform: translateY(20px);
-  animation: fadeInUp 0.8s forwards;
 }
 
 .section.reverse {
   flex-direction: row-reverse;
 }
 
-.section .text {
+.section .text,
+.section .image {
   flex: 1;
-  min-width: 300px;
+  min-width: 280px;
 }
 
 .section .text h2 {
@@ -59,16 +61,11 @@
   color: var(--text-secondary);
 }
 
-.section .image {
-  flex: 1;
-  min-width: 300px;
-}
-
 .section img {
   width: 100%;
   border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
 .section button {
@@ -84,7 +81,7 @@
 }
 
 .section button:hover {
-  background-color: #0056b3; /* ou criar uma variável --accent-color-dark */
+  background-color: var(--accent-color-dark);
   transform: translateY(-2px);
 }
 
@@ -99,13 +96,13 @@
   background-color: var(--color-white);
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-6px);
-  box-shadow: 0 12px 24px rgba(0,0,0,0.1);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
 }
 
 .iconWrapper {
@@ -162,9 +159,11 @@
 
 .step-card {
   background-image: url("https://ik.imagekit.io/al1usqugs/Gaales.Planejados/projeto01.jpg?updatedAt=1758201834507");
+  background-size: cover;
+  background-position: center;
   padding: 2rem;
   border-radius: 12px;
-  box-shadow: 0 8px 16px rgba(0,0,0,0.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
   transition: transform 0.3s ease;
 }
 
@@ -198,5 +197,29 @@
 
   .project-steps-section {
     padding: 4rem 2rem;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+  }
+
+  .section .text h2 {
+    font-size: 1.5rem;
+  }
+
+  .section .text p {
+    font-size: 1rem;
+  }
+
+  .project-steps-section h2 {
+    font-size: 2rem;
+  }
+
+  .project-steps-section p {
+    font-size: 1rem;
   }
 }
