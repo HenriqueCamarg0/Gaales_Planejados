@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import './contato.css';
+// Contato.tsx
+import React, { useState } from 'react'
+import './contato.css'
 
 interface FormData {
-  nome: string;
-  email: string;
-  telefone: string;
-  cidade: string;
-  investimento: string;
-  ambientes: string[];
-  horario: string;
-  termosAceitos: boolean;
+  nome: string
+  email: string
+  telefone: string
+  cidade: string
+  investimento: string
+  ambientes: string[]
+  horario: string
+  termosAceitos: boolean
 }
 
 const Contato: React.FC = () => {
@@ -22,58 +23,67 @@ const Contato: React.FC = () => {
     ambientes: [],
     horario: '',
     termosAceitos: false,
-  });
+  })
 
-const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
-  const target = e.target as HTMLInputElement;
-  const { id, value, type, name } = target;
-  const checked = target.checked;
-
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
+    const target = e.target as HTMLInputElement
+    const { id, value, type, name } = target
+    const checked = target.checked
 
     if (type === 'checkbox' && name === 'ambiente') {
-      setFormData((prev) => ({
+      setFormData(prev => ({
         ...prev,
         ambientes: checked
           ? [...prev.ambientes, id]
-          : prev.ambientes.filter((amb) => amb !== id),
-      }));
+          : prev.ambientes.filter(amb => amb !== id),
+      }))
     } else if (type === 'radio' && name === 'horario') {
-      setFormData((prev) => ({ ...prev, horario: id }));
+      setFormData(prev => ({ ...prev, horario: id }))
     } else if (id === 'termos') {
-      setFormData((prev) => ({ ...prev, termosAceitos: checked }));
+      setFormData(prev => ({ ...prev, termosAceitos: checked }))
     } else {
-      setFormData((prev) => ({ ...prev, [id]: value }));
+      setFormData(prev => ({ ...prev, [id]: value }))
     }
-  };
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+    e.preventDefault()
+    const API_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000'
 
     try {
       const response = await fetch(`${API_URL}/send-email`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
-      });
-
+      })
       if (response.ok) {
-        alert('Formulário enviado com sucesso! Verifique seu e-mail.');
+        alert('Formulário enviado com sucesso! Verifique seu e-mail.')
       } else {
-        alert('Erro ao enviar o formulário. Tente novamente.');
+        alert('Erro ao enviar o formulário. Tente novamente.')
       }
     } catch {
-      alert('Erro de conexão com o servidor.');
+      alert('Erro de conexão com o servidor.')
     }
-  };
+  }
+
+  const labels: Record<string, string> = {
+    cozinha: 'Área Gourmet',
+    sala: 'Home Theater / Sala',
+    quarto: 'Dormitórios',
+    servico: 'Áreas de Serviço',
+    banheiro: 'Banheiros',
+    escritorio: 'Escritório',
+  }
 
   return (
     <section className="contato-section container py-5">
       <h2 className="text-center mb-4">Solicite seu Projeto</h2>
       <p className="text-center mb-5">
-        Preencha o formulário abaixo e nossa equipe entrará em contato com você para criar o ambiente dos seus sonhos.
+        Preencha o formulário abaixo e nossa equipe entrará em contato com você
+        para criar o ambiente dos seus sonhos.
       </p>
-
       <form className="row g-4" onSubmit={handleSubmit}>
         <div className="col-md-6">
           <label htmlFor="nome" className="form-label">Nome</label>
@@ -86,7 +96,6 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
             required
           />
         </div>
-
         <div className="col-md-6">
           <label htmlFor="email" className="form-label">E-mail</label>
           <input
@@ -98,7 +107,6 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
             required
           />
         </div>
-
         <div className="col-md-6">
           <label htmlFor="cidade" className="form-label">Cidade</label>
           <input
@@ -109,9 +117,10 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
             onChange={handleChange}
           />
         </div>
-
         <div className="col-md-6">
-          <label htmlFor="telefone" className="form-label">Telefone / WhatsApp</label>
+          <label htmlFor="telefone" className="form-label">
+            Telefone / WhatsApp
+          </label>
           <input
             type="tel"
             className="form-control"
@@ -120,9 +129,10 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
             onChange={handleChange}
           />
         </div>
-
         <div className="col-md-6">
-          <label htmlFor="investimento" className="form-label">Expectativa de Investimento</label>
+          <label htmlFor="investimento" className="form-label">
+            Expectativa de Investimento
+          </label>
           <select
             className="form-select"
             id="investimento"
@@ -130,39 +140,40 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
             onChange={handleChange}
           >
             <option value="">Selecione</option>
+            <option value="10mil">Até 10 mil reais</option>
             <option value="25mil">Até 25 mil reais</option>
             <option value="50mil">Até 50 mil reais</option>
             <option value="100mil">Acima de 50 mil reais</option>
+            <option value="200mil">Acima de 100 mil reais</option>
           </select>
         </div>
-
         <div className="col-md-6">
-          <label className="form-label">Ambientes desejados</label>
-          {['cozinha', 'sala', 'quarto', 'servico', 'banheiro'].map((amb) => (
-            <div className="form-check" key={amb}>
-              <input
-                className="form-check-input"
-                type="checkbox"
-                id={amb}
-                name="ambiente"
-                checked={formData.ambientes.includes(amb)}
-                onChange={handleChange}
-              />
-              <label className="form-check-label" htmlFor={amb}>
-                {amb === 'cozinha' && 'Cozinha / Área Gourmet'}
-                {amb === 'sala' && 'Home Theater / Sala'}
-                {amb === 'quarto' && 'Dormitórios'}
-                {amb === 'servico' && 'Áreas de Serviço'}
-                {amb === 'banheiro' && 'Banheiros'}
-              </label>
-            </div>
-          ))}
+          <label className="form-label mb-2">Ambientes desejados</label>
+          <div className="row gx-2 gy-1">
+            {Object.keys(labels).map(amb => (
+              <div key={amb} className="col-6 col-md-4">
+                <div className="form-check">
+                  <input
+                    className="form-check-input"
+                    type="checkbox"
+                    id={amb}
+                    name="ambiente"
+                    checked={formData.ambientes.includes(amb)}
+                    onChange={handleChange}
+                  />
+                  <label className="form-check-label" htmlFor={amb}>
+                    {labels[amb]}
+                  </label>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-
         <div className="col-md-12">
-          <label className="form-label">Melhor horário para contato</label><br />
-          {['manha', 'almoco', 'tarde', 'noite'].map((h) => (
-            <div className="form-check form-check-inline" key={h}>
+          <label className="form-label">Melhor horário para contato</label>
+          <br />
+          {['manha', 'tarde', 'noite'].map(h => (
+            <div key={h} className="form-check form-check-inline">
               <input
                 className="form-check-input"
                 type="radio"
@@ -173,14 +184,12 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
               />
               <label className="form-check-label" htmlFor={h}>
                 {h === 'manha' && 'Manhã'}
-                {h === 'almoco' && 'Horário de almoço'}
                 {h === 'tarde' && 'Tarde'}
                 {h === 'noite' && 'Depois das 18h'}
               </label>
             </div>
           ))}
         </div>
-
         <div className="col-md-12">
           <div className="form-check">
             <input
@@ -195,7 +204,6 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
             </label>
           </div>
         </div>
-
         <div className="col-md-12 text-center mt-4">
           <button type="submit" className="btn-orcamento">
             Solicitar orçamento
@@ -203,7 +211,7 @@ const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
         </div>
       </form>
     </section>
-  );
-};
+  )
+}
 
-export default Contato;
+export default Contato
