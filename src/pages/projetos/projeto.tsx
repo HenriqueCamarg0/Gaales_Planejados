@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./projeto.css";
 import { Modal } from "react-bootstrap";
 
