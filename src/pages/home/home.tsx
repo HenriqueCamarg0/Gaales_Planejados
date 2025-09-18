@@ -1,4 +1,4 @@
-import "./Home.css";
+import "./home.css";
 import { FaFire, FaGem, FaBolt, FaShieldAlt } from "react-icons/fa";
 
 export default function Home() {
