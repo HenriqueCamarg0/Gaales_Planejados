@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { MapPin, Phone, Navigation, Clock, Star } from "lucide-react";
-import "./Sobre.css";
+import "./sobre.css";
 import Links from "../../components/links/links";
 
 // Dados das lojas
